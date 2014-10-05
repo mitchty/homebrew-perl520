@@ -2,12 +2,13 @@ require 'formula'
 
 class Perl520 < Formula
   homepage 'http://www.perl.org/'
-  url 'http://www.cpan.org/src/5.0/perl-5.20.1.tar.gz'
-  sha1 'dad920583cab07e96bb8860a70eebc5fa9cf8e4d'
+  url 'http://www.cpan.org/src/5.0/perl-5.20.0.tar.gz'
+  sha1 '52087047fd35e1020387f7c492f594a397be4e12'
 
   keg_only 'System provides Perl. Also conflicts with other Perl versions.'
 
   option 'use-dtrace', 'Build with DTrace probes'
+  option 'no-test', 'Don\'t do a make test prior to install'
 
   def install
     args = [
@@ -24,7 +25,7 @@ class Perl520 < Formula
 
     system './Configure', *args
     system "make"
-    system "make test"
+    system "make test" if build.include? 'no-test'
     system "make install"
   end
 end
