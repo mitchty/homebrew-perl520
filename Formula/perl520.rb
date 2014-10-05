@@ -25,7 +25,7 @@ class Perl520 < Formula
 
     system './Configure', *args
     system "make"
-    system "make test" if build.include? 'no-test'
+    system "make test" unless build.include? 'no-test'
     system "make install"
   end
 end
