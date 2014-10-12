@@ -2,8 +2,11 @@ require 'formula'
 
 class Perl520 < Formula
   homepage 'http://www.perl.org/'
-  url 'http://www.cpan.org/src/5.0/perl-5.20.0.tar.gz'
-  sha1 '52087047fd35e1020387f7c492f594a397be4e12'
+  url "http://www.cpan.org/src/5.0/perl-5.20.1.tar.bz2"
+  mirror "https://mirrors.kernel.org/debian/pool/main/p/perl/perl_5.20.1.orig.tar.bz2"
+  sha1 "cd424d1520ba2686fe5d4422565aaf880e9467f6"
+
+  head "git://perl5.git.perl.org/perl.git", :branch => "blead"
 
   keg_only 'System provides Perl. Also conflicts with other Perl versions.'
 
